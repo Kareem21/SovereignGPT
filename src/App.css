@@ -1,0 +1,148 @@
+body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 800px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+  background-color: #000;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.title-white {
+  color: #fff;
+}
+
+.title-red {
+  color: #ff0000;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-section {
+  padding: 1rem;
+  background-color: #111;
+}
+
+.faq-section h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.faq-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-item {
+  padding: 0.75rem;
+  background-color: #222;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  background-color: #333;
+}
+
+.chat-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #000;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  max-height: 50vh;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.message.question {
+  background-color: #222;
+  color: #fff;
+}
+
+.message.answer {
+  background-color: #111;
+  color: #fff;
+}
+
+form {
+  display: flex;
+}
+
+input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 4px 0 0 4px;
+  background-color: #222;
+  color: #fff;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #ff0000;
+  color: #000;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: #660000;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .faq-section {
+    width: 300px;
+  }
+
+  .chat-section {
+    flex-grow: 1;
+  }
+}
