@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 
-
 const FAQs = [
     "What are the main benefits of a freezone company over a mainland company?",
     "Tell me about Partner pro group.",
@@ -30,7 +29,7 @@ function App() {
         setInput('');
 
         try {
-            const response = await axios.post('http://localhost:5000/ask', { question: input });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/ask`, { question: input });
             setMessages(prevMessages => [...prevMessages, { type: 'answer', content: response.data.answer }]);
         } catch (error) {
             console.error('Error:', error);
