@@ -25,7 +25,7 @@ function Footer() {
                     <ul>
                         <li><a href="#"><Icon fontSize="24px" icon="mdi:instagram" /> Instagram</a></li>
                         <li><a href="#"><Icon fontSize="24px" icon="mdi:facebook" /> Facebook</a></li>
-                        <li><a href="mailto:kareemy9000@gmail.com">kareemy9000@gmail.com</a></li>
+                        <li><a href="mailto:kareemy9000@gmail.com">soverignemail@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
