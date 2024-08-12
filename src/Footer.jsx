@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
-import './Footer.css';
+//import './Footer.css';
 
 function Footer() {
     return (
