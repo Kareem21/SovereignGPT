@@ -12,24 +12,15 @@ const FAQs = [
     "Is it legal to accept payments for a Saudi company without registering it?",
 ];
 
-
 function App() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isFAQOpen, setIsFAQOpen] = useState(false);
     const messagesEndRef = useRef(null);
-    const chatSectionRef = useRef(null);
 
     useEffect(() => {
-        if (messages.length > 0 && messages[messages.length - 1].type === 'answer') {
-            const chatSection = chatSectionRef.current;
-            const isScrolledToBottom = chatSection.scrollHeight - chatSection.clientHeight <= chatSection.scrollTop + 1;
-
-            if (isScrolledToBottom) {
-                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
     const handleSubmit = async (e) => {
@@ -65,10 +56,21 @@ function App() {
                 </header>
                 <div className="content">
                     <div className={`faq-section ${isFAQOpen ? 'open' : ''}`}>
-                        {/* ... (FAQ section code) */}
+                        <h2>Frequently Asked Questions</h2>
+                        <div className="faq-toggle" onClick={() => setIsFAQOpen(!isFAQOpen)}>
+                            <span>Frequently Asked Questions</span>
+                            <span className={`faq-toggle-icon ${isFAQOpen ? 'open' : ''}`}>
+                                {isFAQOpen ? '▲' : '▼'}
+                            </span>
+                        </div>
+                        <ul className="faq-list">
+                            {FAQs.map((question, index) => (
+                                <li key={index} className="faq-item" onClick={() => handleFAQClick(question)}>{question}</li>
+                            ))}
+                        </ul>
                     </div>
                     <div className="chat-section">
-                        <div className="messages" ref={chatSectionRef}>
+                        <div className="messages">
                             {messages.map((message, index) => (
                                 <div key={index} className={`message ${message.type}`}>
                                     <strong>{message.type === 'question' ? 'Q: ' : 'A: '}</strong>
@@ -91,7 +93,14 @@ function App() {
                     </div>
                 </div>
                 <div className="who-we-are">
-                    {/* ... (Who We Are section) */}
+                    <h2>Who We Are</h2>
+                    <p>
+                        Sovereign stands out as a premier independent provider of corporate, private client,
+                        and retirement planning services. With over 20,000 structures under management and
+                        assets exceeding £20 billion, they cater to a diverse clientele including companies,
+                        entrepreneurs, private investors, and high net worth individuals.
+                        ...
+                    </p>
                 </div>
             </div>
             <Footer />
