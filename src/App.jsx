@@ -16,6 +16,7 @@ function App() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isFAQOpen, setIsFAQOpen] = useState(false);
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
 
     const handleFAQClick = (question) => {
         setInput(question);
+        setIsFAQOpen(false);
     };
 
     return (
@@ -53,8 +55,11 @@ function App() {
                     <h1><span className="title-white">Sovereign</span><span className="title-red">GPT</span></h1>
                 </header>
                 <div className="content">
-                    <div className="faq-section">
+                    <div className={`faq-section ${isFAQOpen ? 'open' : ''}`}>
                         <h2>Frequently Asked Questions</h2>
+                        <div className="faq-toggle" onClick={() => setIsFAQOpen(!isFAQOpen)}>
+                            {isFAQOpen ? 'Hide FAQs' : 'Show FAQs'}
+                        </div>
                         <ul className="faq-list">
                             {FAQs.map((question, index) => (
                                 <li key={index} className="faq-item" onClick={() => handleFAQClick(question)}>{question}</li>
