@@ -6,8 +6,8 @@ const FAQs = [
     "What are the main benefits of a freezone company over a mainland company?",
     "Tell me about Partner pro group.",
     "What are the bare minimum requirements to form a new company in Saudi Arabia?",
-    "If I open an online business in the UAE, how do i proceed?",
-    "is it legal to accept payments for a Saudi company without registering it?",
+    "If I open an online business in the UAE, how do I proceed?",
+    "Is it legal to accept payments for a Saudi company without registering it?",
 ];
 
 function App() {
@@ -20,6 +20,22 @@ function App() {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
+    const typewriterEffect = (text, callback) => {
+        let index = 0;
+        const interval = setInterval(() => {
+            setMessages(prevMessages => {
+                const lastMessage = prevMessages[prevMessages.length - 1];
+                const updatedMessage = { ...lastMessage, content: lastMessage.content + text[index] };
+                return [...prevMessages.slice(0, -1), updatedMessage];
+            });
+            index++;
+            if (index === text.length) {
+                clearInterval(interval);
+                callback();
+            }
+        }, 50); // Adjust the speed of the typewriter effect here
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!input.trim()) return;
@@ -30,13 +46,13 @@ function App() {
 
         try {
             const response = await axios.post(`http://127.0.0.1:8080/ask`, { question: input });
-            setMessages(prevMessages => [...prevMessages, { type: 'answer', content: response.data.answer }]);
+            setMessages(prevMessages => [...prevMessages, { type: 'answer', content: '' }]);
+            typewriterEffect(response.data.answer, () => setIsLoading(false));
         } catch (error) {
             console.error('Error:', error);
             setMessages(prevMessages => [...prevMessages, { type: 'answer', content: 'An error occurred. Please try again.' }]);
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
 
     const handleFAQClick = (question) => {
@@ -46,6 +62,7 @@ function App() {
     return (
         <div className="app">
             <header>
+                <img src="assets/logo.gif" alt="Logo" className="logo" />
                 <h1><span className="title-white">Sovereign</span><span className="title-red">GPT</span></h1>
             </header>
             <div className="content">
@@ -73,6 +90,7 @@ function App() {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Ask a question..."
+                            style={{ flexGrow: 1 }}
                         />
                         <button type="submit" disabled={isLoading}>
                             {isLoading ? '...' : 'Send'}

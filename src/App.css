@@ -23,6 +23,14 @@ header {
   background-color: #000;
   padding: 1rem;
   text-align: center;
+  position: relative;
+}
+
+.logo {
+  max-width: 100px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 h1 {
@@ -64,7 +72,7 @@ h1 {
   background-color: #222;
   margin-bottom: 0.5rem;
   border-radius: 4px;
-  color: #fff;
+  color: #800020; /* Dark burgundy color */
   cursor: pointer;
 }
 
@@ -95,16 +103,18 @@ h1 {
 
 .message.question {
   background-color: #222;
-  color: #fff;
+  color: #800020; /* Dark burgundy color */
 }
 
 .message.answer {
   background-color: #111;
   color: #fff;
+  white-space: pre-wrap;
 }
 
 form {
   display: flex;
+  flex-wrap: wrap;
 }
 
 input {
@@ -115,6 +125,7 @@ input {
   border-radius: 4px 0 0 4px;
   background-color: #222;
   color: #fff;
+  min-height: 50px;
 }
 
 button {
@@ -144,5 +155,10 @@ button:disabled {
 
   .chat-section {
     flex-grow: 1;
+  }
+
+  .logo {
+    top: 10px;
+    left: 10px;
   }
 }
