@@ -102,8 +102,8 @@ function App() {
                     <div className="footer-section">
                         <h4>Explore</h4>
                         <ul>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Chatbot</a></li>
+                            <li><a href="#">Sovereign group</a></li>
                         </ul>
                     </div>
                     <div className="footer-section">
