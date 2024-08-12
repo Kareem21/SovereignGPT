@@ -103,7 +103,7 @@ h1 {
 
 .message.question {
   background-color: #222;
-  color: #800020; /* Dark burgundy color */
+  color:  #ff0000; /* Dark burgundy color */
 }
 
 .message.answer {
