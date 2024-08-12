@@ -63,7 +63,8 @@ function App() {
                     <h2>Frequently Asked Questions</h2>
                     <ul className="faq-list">
                         {FAQs.map((question, index) => (
-                            <li key={index} className="faq-item" onClick={() => handleFAQClick(question)}>{question}</li>
+                            <li key={index} className="faq-item"
+                                onClick={() => handleFAQClick(question)}>{question}</li>
                         ))}
                     </ul>
                 </div>
@@ -75,7 +76,7 @@ function App() {
                                 {message.content}
                             </div>
                         ))}
-                        <div ref={messagesEndRef} />
+                        <div ref={messagesEndRef}/>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <input
@@ -90,8 +91,11 @@ function App() {
                     </form>
                 </div>
             </div>
-            <div className="sovereign-section">
-                <p>{sovereignText}</p>
+            <div>
+                <h2>Who We Are</h2>
+                <div className="sovereign-section">
+                    <p>{sovereignText}</p>
+                </div>
             </div>
         </div>
     );
