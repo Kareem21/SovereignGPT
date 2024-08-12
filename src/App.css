@@ -1,235 +1,48 @@
-body, #root {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .app {
-  width: 100%;
-  max-width: 1200px;
-  background-color: #000;
-  color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  background-color: #111;
-  padding: 1rem;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-.navbar a:hover {
-  color: #ff0000;
-}
-
-header {
-  background-color: #000;
-  padding: 1rem;
-  text-align: center;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-.title-white {
-  color: #fff;
-}
-
-.title-red {
-  color: #ff0000;
+  align-items: center;
+  padding: 20px;
 }
 
 .content {
   display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-.faq-section {
-  padding: 1rem;
-  background-color: #111;
-}
-
-.faq-section h2 {
-  margin-top: 0;
-  color: #fff;
-  font-size: 1.25rem;
-}
-
-.faq-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.faq-item {
-  padding: 0.5rem;
-  background-color: #222;
-  margin-bottom: 0.75rem;
-  border-radius: 4px;
-  color: #ff0000;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.faq-item:hover {
-  background-color: #333;
-}
-
-.chat-section {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background-color: #000;
-}
-
-.messages {
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-bottom: 1rem;
-  max-height: 50vh;
-}
-
-.message {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.message.question {
-  background-color: #222;
-  color: #ff0000;
-}
-
-.message.answer {
-  background-color: #111;
-  color: #fff;
-}
-
-form {
-  display: flex;
-}
-
-input {
-  flex-grow: 1;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #444;
-  border-radius: 4px 0 0 4px;
-  background-color: #222;
-  color: #fff;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #ff0000;
-  color: #000;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:disabled {
-  background-color: #660000;
-  color: #333;
-}
-
-.sovereign-wrapper {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.sovereign-section {
-  background-color: #111;
-  color: #fff;
-  padding: 1rem;
-  text-align: left;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  display: inline-block;
-  max-width: 800px;
-  width: 100%;
-}
-
-.footer {
-  background-color: #2c2c54;
-  color: #fff;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   max-width: 1200px;
 }
 
-.footer-section {
+.faq-section {
   flex: 1;
-  margin: 1rem;
+  margin-right: 20px;
 }
 
-.footer-section h4 {
-  margin-bottom: 1rem;
-  color: #ffdddd;
+.chat-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-  color: #ffdddd;
-  text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  margin-top: 2rem;
+.who-we-are {
+  width: 100%;
+  max-width: 1200px;
   text-align: center;
-  font-size: 0.85rem;
-  color: #aaa;
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
-  .footer-content {
+  .content {
     flex-direction: column;
-    text-align: center;
   }
 
-  .footer-section {
-    margin-bottom: 1.5rem;
+  .faq-section {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .who-we-are {
+    text-align: center;
   }
 }
