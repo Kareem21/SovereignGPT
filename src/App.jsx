@@ -58,7 +58,10 @@ function App() {
                     <div className={`faq-section ${isFAQOpen ? 'open' : ''}`}>
                         <h2>Frequently Asked Questions</h2>
                         <div className="faq-toggle" onClick={() => setIsFAQOpen(!isFAQOpen)}>
-                            {isFAQOpen ? 'Hide FAQs' : 'Show FAQs'}
+                            <span>Frequently Asked Questions</span>
+                            <span className={`faq-toggle-icon ${isFAQOpen ? 'open' : ''}`}>
+                                {isFAQOpen ? '▲' : '▼'}
+                            </span>
                         </div>
                         <ul className="faq-list">
                             {FAQs.map((question, index) => (
