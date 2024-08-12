@@ -6,9 +6,19 @@ const FAQs = [
     "What are the main benefits of a freezone company over a mainland company?",
     "Tell me about Partner pro group.",
     "What are the bare minimum requirements to form a new company in Saudi Arabia?",
-    "If I open an online business in the UAE, how do i proceed?",
-    "is it legal to accept payments for a Saudi company without registering it?",
+    "If I open an online business in the UAE, how do I proceed?",
+    "Is it legal to accept payments for a Saudi company without registering it?",
 ];
+
+const sovereignText = `
+    Sovereign stands out as a premier independent provider of corporate, private client, and retirement planning services.
+    With over 20,000 structures under management and assets exceeding £20 billion, they cater to a diverse clientele including
+    companies, entrepreneurs, private investors, and high net worth individuals. Their expertise spans three core areas: Sovereign
+    Corporate Services, which assists companies in establishing and managing operations across major jurisdictions; Sovereign Private
+    Client Services, offering wealth protection and succession planning for internationally mobile families and entrepreneurs; and
+    Sovereign Retirement Planning, providing flexible and portable pension solutions. With a presence in more than 20 jurisdictions
+    worldwide, Sovereign specializes in delivering integrated advice and services to clients with complex international needs.
+`;
 
 function App() {
     const [input, setInput] = useState('');
@@ -79,6 +89,9 @@ function App() {
                         </button>
                     </form>
                 </div>
+            </div>
+            <div className="sovereign-section">
+                <p>{sovereignText}</p>
             </div>
         </div>
     );

@@ -11,26 +11,20 @@ body, #root {
 
 .app {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px; /* Adjusted for wider screens */
   background-color: #000;
   color: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   background-color: #000;
   padding: 1rem;
   text-align: center;
-  position: relative;
-}
-
-.logo {
-  max-width: 100px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
 }
 
 h1 {
@@ -49,6 +43,7 @@ h1 {
 .content {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .faq-section {
@@ -72,7 +67,7 @@ h1 {
   background-color: #222;
   margin-bottom: 0.5rem;
   border-radius: 4px;
-  color: #ff0000;
+  color: #ff0000; /* Adjusted FAQ color */
   cursor: pointer;
 }
 
@@ -103,18 +98,16 @@ h1 {
 
 .message.question {
   background-color: #222;
-  color:  #ff0000;
+  color: #ff0000; /* Adjusted user question color */
 }
 
 .message.answer {
   background-color: #111;
   color: #fff;
-  white-space: pre-wrap;
 }
 
 form {
   display: flex;
-  flex-wrap: wrap;
 }
 
 input {
@@ -125,7 +118,6 @@ input {
   border-radius: 4px 0 0 4px;
   background-color: #222;
   color: #fff;
-  min-height: 50px;
 }
 
 button {
@@ -144,6 +136,15 @@ button:disabled {
   color: #333;
 }
 
+.sovereign-section {
+  background-color: #111;
+  color: #fff;
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
 @media (min-width: 768px) {
   .content {
     flex-direction: row;
@@ -157,8 +158,8 @@ button:disabled {
     flex-grow: 1;
   }
 
-  .logo {
-    top: 10px;
-    left: 10px;
+  .sovereign-section {
+    grid-column: span 2;
+    margin-top: 2rem;
   }
 }
