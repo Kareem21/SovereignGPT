@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import './App.css';
 
 const FAQs = [
@@ -44,52 +46,56 @@ function App() {
     };
 
     return (
-        <div className="app">
-            <header>
-                <h1><span className="title-white">Sovereign</span><span className="title-red">GPT</span></h1>
-            </header>
-            <div className="content">
-                <div className="faq-section">
-                    <h2>Frequently Asked Questions</h2>
-                    <ul className="faq-list">
-                        {FAQs.map((question, index) => (
-                            <li key={index} className="faq-item" onClick={() => handleFAQClick(question)}>{question}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="chat-section">
-                    <div className="messages">
-                        {messages.map((message, index) => (
-                            <div key={index} className={`message ${message.type}`}>
-                                <strong>{message.type === 'question' ? 'Q: ' : 'A: '}</strong>
-                                {message.content}
-                            </div>
-                        ))}
-                        <div ref={messagesEndRef} />
+        <div>
+            <Navbar />
+            <div className="app">
+                <header>
+                    <h1><span className="title-white">Sovereign</span><span className="title-red">GPT</span></h1>
+                </header>
+                <div className="content">
+                    <div className="faq-section">
+                        <h2>Frequently Asked Questions</h2>
+                        <ul className="faq-list">
+                            {FAQs.map((question, index) => (
+                                <li key={index} className="faq-item" onClick={() => handleFAQClick(question)}>{question}</li>
+                            ))}
+                        </ul>
                     </div>
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Ask a question..."
-                        />
-                        <button type="submit" disabled={isLoading}>
-                            {isLoading ? '...' : 'Send'}
-                        </button>
-                    </form>
+                    <div className="chat-section">
+                        <div className="messages">
+                            {messages.map((message, index) => (
+                                <div key={index} className={`message ${message.type}`}>
+                                    <strong>{message.type === 'question' ? 'Q: ' : 'A: '}</strong>
+                                    {message.content}
+                                </div>
+                            ))}
+                            <div ref={messagesEndRef} />
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Ask a question..."
+                            />
+                            <button type="submit" disabled={isLoading}>
+                                {isLoading ? '...' : 'Send'}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div className="who-we-are">
+                    <h2>Who We Are</h2>
+                    <p>
+                        Sovereign stands out as a premier independent provider of corporate, private client,
+                        and retirement planning services. With over 20,000 structures under management and
+                        assets exceeding £20 billion, they cater to a diverse clientele including companies,
+                        entrepreneurs, private investors, and high net worth individuals.
+                        ...
+                    </p>
                 </div>
             </div>
-            <div className="who-we-are">
-                <h2>Who We Are</h2>
-                <p>
-                    Sovereign stands out as a premier independent provider of corporate, private client,
-                    and retirement planning services. With over 20,000 structures under management and
-                    assets exceeding £20 billion, they cater to a diverse clientele including companies,
-                    entrepreneurs, private investors, and high net worth individuals.
-                    ...
-                </p>
-            </div>
+            <Footer />
         </div>
     );
 }
