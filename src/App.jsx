@@ -29,7 +29,7 @@ function App() {
         setInput('');
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/ask`, { question: input });
+            const response = await axios.post(`http://127.0.0.1:8080/ask`, { question: input });
             setMessages(prevMessages => [...prevMessages, { type: 'answer', content: response.data.answer }]);
         } catch (error) {
             console.error('Error:', error);
